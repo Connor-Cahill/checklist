@@ -34,41 +34,45 @@ def mark_completed(index):
 def select(function_code):
     #create item
     if function_code == 'C' or function_code == 'c':
-        input_item = user_input('Input Item: ')
+        input_item = input('Input Item: ')
         create(input_item)
         return True
 
     elif function_code == 'R' or function_code == 'r':
-        index = int(user_input("Index Number?"))
+        index = int(input("Index Number?"))
         read(index)
         return True
     elif function_code == 'P' or function_code == 'p':
         list_all_items()
         return True
     elif function_code == 'Q' or function_code == 'q':
+
         return False
     elif function_code == 'D' or function_code == 'd':
-        index = int(user_input('Index Number?'))
+        index = int(input('Index Number?'))
         destroy(index)
+        return True
     elif function_code == 'U' or function_code == 'u':
-        index = int(user_input('Index Number?'))
-        item = user_input('Updated Item: ')
+        index = int(input('Index Number?'))
+        item = input('Updated Item: ')
         update(index, item)
+        return True
     elif function_code == 'M' or function_code == 'm':
-        index = int(user_input('Index Number?'))
+        index = int(input('Index Number?'))
         mark_completed(index)
+        return True
     else:
         print('Unknown Option')
         return True
 
 def user_input(prompt):
     #displays message in terminal and waits for user response
-    user_input = input(prompt)
-    return user_input
+    input = input(prompt)
+    return input
 
 running = True
 while running:
-    selection = user_input('Press C to add to list-- R to read from list -- P to display list -- D to delete item -- U to update and item -- M to mark an item completed -- AND Q to quit: ')
+    selection = input('Press C to add to list-- R to read from list -- P to display list -- D to delete item -- U to update and item -- M to mark an item completed -- AND Q to quit: ')
     select(selection)
 
 
@@ -93,7 +97,7 @@ def test():
     list_all_items()
     select('R')
     list_all_items()
-    user_value = user_input('Please Enter a Value:')
+    user_value = input('Please Enter a Value:')
     print(user_value)
 
 
